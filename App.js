@@ -1,20 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { PaperProvider } from 'react-native-paper';
+import { SQLiteProvider } from 'expo-sqlite';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+import MainContent from './src/components/MainContent';
+import { initDB } from './src/database/initDB';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SQLiteProvider databaseName="tasks.db" onInit={initDB}>
+        <PaperProvider>
+          <MainContent />
+          <StatusBar style="auto" />
+        </PaperProvider>
+      </SQLiteProvider>
+    </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

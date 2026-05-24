@@ -3,14 +3,23 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@expo/vector-icons": "^15.0.2",
     "expo": "~56.0.4",
+    "expo-linear-gradient": "~56.0.4",
+    "expo-sqlite": "~56.0.4",
     "expo-status-bar": "~56.0.4",
     "react": "19.2.3",
-    "react-native": "0.85.3"
+    "react-native": "0.85.3",
+    "react-native-gesture-handler": "~2.31.1",
+    "react-native-paper": "^5.15.2",
+    "react-native-reanimated": "4.3.1",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-svg": "15.15.4"
   },
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
+    "pixel": "adb reverse tcp:3000 tcp:3000 && adb reverse tcp:8081 tcp:8081 && expo start --android --localhost --go -c",
     "ios": "expo start --ios",
     "web": "expo start --web"
   },
